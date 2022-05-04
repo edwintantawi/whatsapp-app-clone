@@ -8,7 +8,7 @@ class AgreementScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 42),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 82),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
