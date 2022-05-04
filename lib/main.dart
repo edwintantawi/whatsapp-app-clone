@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:whatsapp_app_clone/screens/home_screen.dart';
 import 'package:whatsapp_app_clone/utils/colors.dart';
 import 'package:whatsapp_app_clone/utils/material_colors.dart';
+import 'package:whatsapp_app_clone/screens/agreement_screen.dart';
+// import 'package:whatsapp_app_clone/screens/home_screen.dart';
+// import 'package:whatsapp_app_clone/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +27,9 @@ class MyApp extends StatelessWidget {
           accentColor: WAColors.lightGreen,
         ),
       ),
-      home: const HomeScreen(title: 'WhatsApp'),
+      // home: const HomeScreen(title: 'WhatsApp'),
+      // home: const SplashScreen(title: 'WhatsApp'),
+      home: const AgreementScreen(),
     );
   }
 }
