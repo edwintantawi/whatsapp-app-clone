@@ -60,7 +60,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     width: 150,
                     child: TextField(
                       controller: _verifyCodeController,
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         isDense: true,
                         contentPadding: EdgeInsets.symmetric(vertical: 8),
