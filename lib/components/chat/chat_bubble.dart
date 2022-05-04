@@ -22,6 +22,7 @@ class ChatBubble extends StatelessWidget {
     Color color = fromMe ? WAColors.outGoingChatBubble : Colors.white;
 
     TriangleShape triangleShapePainter = TriangleShape(backgroundColor: color);
+    double bubbleRadius = 12;
 
     return Row(
       mainAxisAlignment:
@@ -52,7 +53,12 @@ class ChatBubble extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 12),
               decoration: BoxDecoration(
                 color: color,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(fromMe ? 0 : bubbleRadius),
+                  topLeft: Radius.circular(fromMe ? bubbleRadius : 0),
+                  bottomLeft: Radius.circular(bubbleRadius),
+                  bottomRight: Radius.circular(bubbleRadius),
+                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
