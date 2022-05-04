@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:whatsapp_app_clone/screens/auth_screen.dart';
+
 class AgreementScreen extends StatelessWidget {
   const AgreementScreen({Key? key}) : super(key: key);
 
@@ -39,7 +41,12 @@ class AgreementScreen extends StatelessWidget {
                         minimumSize: const Size(300, 44),
                       ),
                       child: const Text('AGREE AND CONTINUE'),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const AuthScreen()),
+                        );
+                      },
                     )
                   ],
                 )
