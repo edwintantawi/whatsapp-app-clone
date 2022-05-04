@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_app_clone/components/ink_icon_button.dart';
 
 import 'package:whatsapp_app_clone/components/tab_bar/main_tab_bar_view.dart';
 import 'package:whatsapp_app_clone/components/tab_bar/main_tab_bar.dart';
@@ -44,6 +45,10 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         elevation: 2,
         title: Text(widget.title),
+        actions: [
+          InkIconButton(icon: Icons.search, onTap: () {}),
+          InkIconButton(icon: Icons.more_vert, onTap: () {}),
+        ],
         bottom: MainTabBar(
           controller: _tabController,
           children: tabBarData.map((tabBar) => tabBar.tab).toList(),
