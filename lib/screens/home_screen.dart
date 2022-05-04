@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:whatsapp_app_clone/components/tab_bar/main_tab_bar_view.dart';
 import 'package:whatsapp_app_clone/components/tab_bar/main_tab_bar.dart';
+import 'package:whatsapp_app_clone/data/tab_bar_data.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -22,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 4, initialIndex: 1);
+    _tabController =
+        TabController(vsync: this, length: tabBarData.length, initialIndex: 0);
     _tabController.addListener(_handleTabIndex);
   }
 
@@ -42,50 +44,16 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         elevation: 2,
         title: Text(widget.title),
-        bottom: MainTabBar(controller: _tabController),
+        bottom: MainTabBar(
+          controller: _tabController,
+          children: tabBarData.map((tabBar) => tabBar.tab).toList(),
+        ),
       ),
-      body: MainTabBarView(controller: _tabController),
-      floatingActionButton: _fabButtons(),
+      body: MainTabBarView(
+        controller: _tabController,
+        children: tabBarData.map((tabBar) => tabBar.tabView).toList(),
+      ),
+      floatingActionButton: tabBarData[_tabController.index].fab,
     );
-  }
-
-  // TODO: split floating action button widget
-  Widget? _fabButtons() {
-    switch (_tabController.index) {
-      case 1:
-        return const FloatingActionButton(
-          onPressed: null,
-          foregroundColor: Colors.white,
-          child: Icon(Icons.message, size: 20.0),
-        );
-      case 2:
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              mini: true,
-              onPressed: null,
-              backgroundColor: Colors.grey[200],
-              elevation: 5,
-              child: const Icon(Icons.edit, size: 18.0),
-              heroTag: 'btn',
-            ),
-            const SizedBox(height: 8),
-            const FloatingActionButton(
-              onPressed: null,
-              foregroundColor: Colors.white,
-              child: Icon(Icons.camera_alt_rounded, size: 20.0),
-              heroTag: 'btn_2',
-            ),
-          ],
-        );
-      case 3:
-        return const FloatingActionButton(
-          onPressed: null,
-          foregroundColor: Colors.white,
-          child: Icon(Icons.add_call, size: 20.0),
-        );
-    }
-    return null;
   }
 }
